@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Danny Boy Besire</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-bg: #242424;
+      --primary-text: #f4f1dc;
+      --accent-yellow: #d4bb2b;
+      --accent-yellow-light: #fcd116;
+      --dark-grey: #2a2929;
+      --light-grey-bg: #f4f1dc;
+      --hover-bg: #444;
+      --font-bebas: 'Bebas Neue', sans-serif;
+      --font-roboto: 'Roboto', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font-roboto);
+      background-color: var(--primary-bg);
+      color: var(--primary-text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .top-banner {
+      background-color: var(--accent-yellow);
+      color: #000;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: var(--font-roboto);
+      letter-spacing: 0.03em;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--primary-bg);
+      padding: 18px 40px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: 900;
+      font-family: var(--font-bebas);
+      color: var(--accent-yellow-light);
+      text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.2);
+      letter-spacing: 2px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .email-contact {
+      font-size: 15px;
+      color: #ffffff;
+      font-weight: 500;
+      font-family: var(--font-roboto);
+      text-decoration: none;
+      white-space: nowrap;
+      display: inline-block;
+    }
+
+    .email-contact:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .header-info {
+      text-align: right;
+      min-width: 180px;
+      flex-grow: 1;
+    }
+
+    .header-info span {
+      font-size: 14px;
+      color: #ccc;
+      font-weight: 400;
+      display: block;
+      margin-top: 4px;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #1c1c1c;
+      gap: 16px;
+      padding: 12px 20px;
+      border-top: 1px solid #444;
+      border-bottom: 1px solid #444;
+      flex-wrap: wrap;
+    }
+
+    .navbar a {
+      color: var(--primary-text);
+      text-transform: uppercase;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 10px 16px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .navbar a:hover {
+      background-color: var(--accent-yellow);
+      color: #000;
+    }
+
+    .announcement {
+      background-color: var(--light-grey-bg);
+      color: #111;
+      text-align: center;
+      padding: 10px 15px;
+      font-size: 14px;
+      font-weight: 600;
+      font-style: italic;
+      letter-spacing: 0.04em;
+    }
+
+    .booking-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 40px;
+      background-color: var(--primary-bg);
+      gap: 40px;
+    }
+
+    .booking-image {
+      flex: 1 1 45%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .booking-card {
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .booking-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .booking-text {
+      flex: 1 1 50%;
+    }
+
+    .booking-text h2 {
+      font-size: 48px;
+      font-family: var(--font-bebas);
+      letter-spacing: 0.1em;
+      margin-bottom: 16px;
+      transition: all 0.4s ease;
+    }
+
+    .booking-text:hover h2 {
+      color: var(--accent-yellow-light);
+      transform: translateY(-5px);
+    }
+
+    .booking-text h2::after {
+      content: "";
+      display: block;
+      width: 90px;
+      height: 5px;
+      background-color: var(--accent-yellow);
+      margin-top: 14px;
+    }
+
+    .booking-button {
+      padding: 16px 32px;
+      border: 2px solid var(--primary-text);
+      background: transparent;
+      color: var(--primary-text);
+      font-weight: 700;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: 0.3s;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .booking-button:hover {
+      background-color: var(--primary-text);
+      color: var(--primary-bg);
+    }
+
+    .booking-description {
+      font-size: 17px;
+      line-height: 1.8;
+      font-weight: 400;
+      color: #e0dfd8;
+      font-family: 'Roboto', sans-serif;
+      max-width: 600px;
+      margin: 0; /* Fix margin */
+    }
+
+    .main-slider {
+      position: relative;
+      width: 100vw;
+      max-width: 100%;
+      height: 500px;
+      overflow: hidden;
+      margin-top: 15px;
+    }
+
+    .main-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      pointer-events: none;
+    }
+
+    .main-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .main-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.85);
+      display: block;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.6);
+      color: var(--primary-text);
+      border: none;
+      padding: 14px;
+      font-size: 28px;
+      cursor: pointer;
+      z-index: 10;
+      border-radius: 50%;
+      user-select: none;
+    }
+
+    .left-arrow {
+      left: 25px;
+    }
+
+    .right-arrow {
+      right: 25px;
+    }
+
+    .category-section {
+      padding: 60px 40px;
+      background-color: var(--light-grey-bg);
+      text-align: center;
+      color: var(--primary-bg);
+    }
+
+    .category-title {
+      font-size: 36px;
+      font-family: var(--font-bebas);
+      margin-bottom: 10px;
+    }
+
+    .shop-all-link {
+      color: var(--primary-bg);
+      text-decoration: underline;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 30px;
+    }
+
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .category-item {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .category-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(212, 187, 43, 0.6);
+    }
+
+    .category-item img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-bottom: 4px solid var(--accent-yellow);
+      border-radius: 8px 8px 0 0;
+      display: block;
+    }
+
+    .category-item p {
+      padding: 12px 0;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    footer {
+      background-color: var(--primary-bg);
+      color: var(--primary-text);
+      text-align: center;
+      padding: 20px 0;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      border-top: 1px solid #444;
+    }
+
+    /* Responsive Styles */
+
+    @media screen and (max-width: 1024px) {
+      .booking-text h2 {
+        font-size: 36px;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .booking-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .booking-image,
+      .booking-text {
+        flex: 1 1 100%;
+      }
+
+      .booking-text h2 {
+        font-size: 32px;
+      }
+
+      .booking-button {
+        padding: 14px 28px;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .header {
+        padding: 15px 20px;
+      }
+
+      .header-info {
+        text-align: center;
+        min-width: auto;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .navbar {
+        gap: 8px;
+        padding: 8px 10px;
+      }
+
+      .navbar a {
+        padding: 10px 12px;
+        font-size: 13px;
+      }
+
+      .category-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .booking-text h2 {
+        font-size: 28px;
+      }
+
+      .booking-description {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-banner">👋 Welcome to Danny Boy Besire’s Official Page</div>
+
+  <div class="header">
+    <a href="Home.html" class="logo">DANNY BOY BESIRE</a>
+    <div class="header-info">
+      <a href="mailto:dannyboybesire@gmail.com" class="email-contact">📧 dannyboybesire@gmail.com</a>
+      <span>📍 Quezon City</span>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <a href="Home.html">Home</a>
+    <a href="https://www.facebook.com/dannyboy.besire.9" target="_blank" rel="noopener noreferrer">Facebook</a>
+    <a href="https://www.instagram.com/dlndn_ink" target="_blank" rel="noopener noreferrer">Instagram</a>
+    <a href="https://www.tiktok.com/@dannyboybesire" target="_blank" rel="noopener noreferrer">TikTok</a>
+  </nav>
+
+  <div class="announcement">
+    <em>"Not all those who wander are lost"</em> — <strong>J.R.R. Tolkien</strong>
+  </div>
+
+  <div class="booking-section">
+    <div class="booking-image">
+      <div class="booking-card">
+        <img src="images/image.jpg" alt="Visit the Shop" />
+      </div>
+    </div>
+    <div class="booking-text">
+      <h2>Where Ink Meets Soul</h2>
+      <p class="booking-description">
+        “Tell me your story, and I’ll translate it into ink.”<br /><br />
+        With a focus on <strong>black and gray realism</strong>, I create detailed, meaningful tattoos designed to reflect your story, emotion, and identity. Whether you're commemorating a moment or expressing a vision, your skin becomes the canvas — and every piece is crafted with precision and purpose.
+      </p>
+    </div>
+  </div>
+
+  <div class="main-slider" aria-label="Main image slider">
+    <div class="main-slide"><img src="images/cover.jpg" alt="Slide 1" /></div>
+    <div class="main-slide"><img src="images/cover1.jpg" alt="Slide 2" /></div>
+    <div class="main-slide"><img src="images/cover2.jpg" alt="Slide 3" /></div>
+    <div class="main-slide"><img src="images/cover3.jpg" alt="Slide 4" /></div>
+    <div class="main-slide"><img src="images/cover4.jpg" alt="Slide 5" /></div>
+    <div class="main-slide"><img src="images/cover5.jpg" alt="Slide 6" /></div>
+    <button class="arrow left-arrow" aria-label="Previous slide">&#10094;</button>
+    <button class="arrow right-arrow" aria-label="Next slide">&#10095;</button>
+  </div>
+
+  <div class="category-section">
+    <h2 class="category-title">Finalized Projects</h2>
+    <a href="seeall.html" target="_blank" rel="noopener noreferrer" class="shop-all-link">See all</a>
+    <div class="category-grid">
+      <div class="category-item"><img src="images/Tattoo.jpg" alt="Silent Guardian" /><p>Silent Guardian</p></div>
+      <div class="category-item"><img src="images/Tattoo1.jpg" alt="Forgotten Language" /><p>Forgotten Language</p></div>
+      <div class="category-item"><img src="images/Tattoo2.jpg" alt="Temple of Tranquility" /><p>Temple of Tranquility</p></div>
+      <div class="category-item"><img src="images/Tattoo3.jpg" alt="Faith in Fire" /><p>Faith in Fire</p></div>
+      <div class="category-item"><img src="images/Tattoo4.jpg" alt="Fractured Whiskers" /><p>Fractured Whiskers</p></div>
+      <div class="category-item"><img src="images/Tattoo5.jpg" alt="Rose" /><p>Rose</p></div>
+      <div class="category-item"><img src="images/Tattoo6.jpg" alt="Moments in Motion" /><p>Moments in Motion</p></div>
+      <div class="category-item"><img src="images/Tattoo23.jpg" alt="Trespiko" /><p>Trespiko</p></div>
+    </div>
+  </div>
+
+  <script>
+    const mainSlides = document.querySelectorAll('.main-slide');
+    let mainIndex = 0;
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+
+    function showMainSlide(index) {
+      mainSlides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+      mainIndex = index;
+    }
+
+    leftArrow.addEventListener('click', () => {
+      const prev = (mainIndex - 1 + mainSlides.length) % mainSlides.length;
+      showMainSlide(prev);
+    });
+
+    rightArrow.addEventListener('click', () => {
+      const next = (mainIndex + 1) % mainSlides.length;
+      showMainSlide(next);
+    });
+
+    setInterval(() => {
+      const next = (mainIndex + 1) % mainSlides.length;
+      showMainSlide(next);
+    }, 4000);
+
+    showMainSlide(mainIndex);
+  </script>
+
+  <footer>
+    &copy; 2025 Larry Boy De Jesus. All rights reserved.
+  </footer>
+
+</body>
+</html>
